@@ -1,0 +1,121 @@
+generated: '2026-08-07'
+method: probed
+source: >-
+  live probes of /.well-known/ and contract-discovery paths on every surviving
+  BlockFi host (2026-08-07)
+result: >-
+  none - not one /.well-known/ document and no machine-readable API contract is
+  served from any BlockFi host. blockfi.com is a WordPress.com-hosted notice site
+  for the BlockFi bankruptcy estate, carrying <meta name="robots"
+  content="noindex, nofollow">; every developer-facing subdomain has been removed
+  from DNS.
+no_pointer_wired: true
+no_pointer_reason: >-
+  This file records a completed NEGATIVE result. No `WellKnown` / `APICatalog`
+  pointer is wired in apis.yml, because wiring one would earn the
+  well_known_catalog agent-readiness check for an index that contains zero
+  documents. The artifact exists as an evidence trail, not as a scoring claim.
+hosts:
+- host: https://blockfi.com
+  platform: WordPress.com (192.0.78.189 / 192.0.78.218)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /llms-full.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /openapi.yaml
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /v1/openapi.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /redoc
+    status: 404
+  - path: /graphql
+    status: 404
+  - path: /mcp
+    status: 404
+  - path: /sitemap.xml
+    status: 404
+  - path: /sitemap_index.xml
+    status: 404
+  - path: /api
+    status: 404
+  - path: /developers
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: >-
+      Present and readable. Disallows only /wp-admin/ for User-agent: *, then blocks
+      a long list of AI crawlers by name (Amazonbot, anthropic-ai, Applebot-Extended,
+      Bytespider, CCBot, ClaudeBot and others). Every path probed above is allowed
+      under User-agent: * and was fetched with a default client UA, so the probe
+      honors the file.
+  soft_404_control: >-
+    Every miss above returned a real HTTP 404 with Content-Type text/html - there is
+    no 200-answering catch-all on this host, so none of these are soft-404 false
+    negatives or false positives.
+- host: https://www.blockfi.com
+  note: 301 to https://blockfi.com/; same origin, identical results on every path
+hosts_that_do_not_resolve:
+  method: dig +short A
+  result: NXDOMAIN / no A record
+  names:
+  - api.blockfi.com
+  - docs.blockfi.com
+  - developer.blockfi.com
+  - developers.blockfi.com
+  - dev.blockfi.com
+  - app.blockfi.com
+  - portal.blockfi.com
+  - mcp.blockfi.com
+  - status.blockfi.com
+  - trade.blockfi.com
+  - trading.blockfi.com
+  - help.blockfi.com
+  - support.blockfi.com
+  - blog.blockfi.com
+  - partners.blockfi.com
+contract_discovery:
+  openapi: >-
+    not found - probed /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json,
+    /api-docs, /redoc and /docs on blockfi.com and www.blockfi.com. The historical
+    BlockFi API host, api.blockfi.com, has been removed from DNS, so there is no API
+    host root left to probe.
+  graphql: not applicable - /graphql 404s and no API host exists
+  mcp: not found - no hosted MCP server, no mcp. subdomain, /mcp 404s
+  a2a_agent_card: >-
+    not found - /.well-known/agent-card.json and the legacy /.well-known/agent.json
+    both 404. No a2a/ artifact is written, per the search-only rule.
+  asyncapi: not found - no event, streaming or webhook surface is published
+  conclusion: >-
+    BlockFi publishes no machine-readable API contract of any kind. This is a
+    completed negative result on a defunct company, not an unfinished probe.
+x-evidence:
+  fetched: '2026-08-07'
+  method: curl GET with redirect-following, 15s timeout, apex and www hosts
+  dns_method: dig +short A on candidate API/docs/app subdomains

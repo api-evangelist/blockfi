@@ -1,0 +1,53 @@
+generated: '2026-08-07'
+method: searched
+source: >-
+  registry searches of npm, PyPI, RubyGems, crates.io, Packagist, NuGet and Maven
+  Central, plus the BlockFi GitHub organization (2026-08-07)
+result: none
+packages: []
+notes: >-
+  BlockFi publishes no client SDK or first-party package in any public registry.
+  BlockFi is a wind-down bankruptcy estate, not an operating company: its customer
+  web platform has been shut down, api.blockfi.com no longer resolves, and there is
+  no developer program for an SDK to target. No `SDKs` pointer is wired in apis.yml,
+  so the sdk_count_1 / sdk_count_3 ergonomics checks are correctly left unearned.
+registries_checked:
+- registry: npm
+  query: blockfi
+  result: >-
+    16 total hits, none related to BlockFi (mixpayjs, cointracker-conversions, taxler
+    plus SEO-spam packages). The npmjs.com/org/blockfi page answers 403 to a
+    non-browser client, so scope existence could not be confirmed either way; no
+    @blockfi-scoped package appears in the registry search index.
+- registry: pypi
+  query: blockfi, blockfi-api, blockfi-client, pyblockfi
+  result: 404 on every spelling
+- registry: rubygems
+  query: blockfi
+  result: 0 results
+- registry: crates.io
+  query: blockfi
+  result: 2 unrelated substring matches (bitcoin-blockfilter, blockfile)
+- registry: packagist
+  query: blockfi
+  result: fuzzy full-text matches only; no BlockFi-owned vendor namespace
+- registry: nuget
+  query: blockfi
+  result: >-
+    5 unrelated matches on the "BlockField"/"BlockFinder" substring
+    (DragonFly.BlockField, BlockFinder, Kraftvaerk.Umbraco.Blockfilter)
+- registry: maven-central
+  query: blockfi
+  result: no result returned; no BlockFi group id is published
+- registry: github
+  query: orgs/blockfi
+  result: >-
+    org exists (login blockfi, id 38138582) and the profile page returns 200, but
+    GET /orgs/blockfi/repos returns an EMPTY array - zero public repositories. An
+    empty organization shell is not a published SDK surface, so no
+    `GitHubOrganization` pointer is wired in apis.yml either.
+x-evidence:
+  fetched: '2026-08-07'
+  method: >-
+    HTTP GET against each registry's public search/metadata API and the GitHub REST
+    API, 15-20s timeout

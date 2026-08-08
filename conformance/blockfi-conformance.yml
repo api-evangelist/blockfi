@@ -1,0 +1,110 @@
+generated: '2026-08-07'
+method: searched
+source: >-
+  BlockFi estate notices on blockfi.com, US Chapter 11 docket coverage, and live
+  probes of blockfi.com (2026-08-07)
+scope: >-
+  BlockFi is a wind-down bankruptcy estate rather than an operating financial
+  services company, so there is no live API surface to assert technical standards
+  against and no active regulatory program to certify. The API and protocol
+  standards below are recorded as applicable:false rather than merely
+  conforms:false, so this file is never mistaken for a failed posture on a running
+  product. The regulatory block records the estate proceeding that actually governs
+  the entity today.
+entity_status:
+  operating: false
+  state: chapter-11-wind-down
+  filed: '2022-11-28'
+  plan_effective: '2023-10'
+  evidence: >-
+    blockfi.com serves only dated estate notices (latest post 2025-04-16) covering
+    identity verification deadlines, Coinbase in-kind crypto distributions, Kroll /
+    Digital Disbursements cash payments, and phishing warnings. The customer web
+    platform has been shut down. The homepage carries noindex/nofollow.
+regulatory_regime:
+- id: us-chapter-11
+  name: >-
+    United States Bankruptcy Code Chapter 11 - In re BlockFi Inc. et al.,
+    US Bankruptcy Court for the District of New Jersey
+  conforms: true
+  status: in-wind-down
+  evidence: >-
+    Filed November 2022; plan effective October 2023. Claims administration and
+    distributions are run by Kroll Restructuring Administration, which blockfi.com
+    links to directly from its homepage.
+  note: >-
+    Recorded as the governing regime for the entity, not as an API or information
+    security compliance credential.
+- id: us-state-money-transmitter-lending-licenses
+  name: US state money transmitter and lender licensing
+  conforms: false
+  applicable: false
+  evidence: >-
+    blockfi.com/licenses/ is still served (HTTP 200) as a historical disclosure page
+    from the operating era. The entity no longer originates loans or takes deposits,
+    so the regime no longer applies to current activity.
+api_standards:
+- id: openapi
+  conforms: false
+  applicable: false
+  evidence: >-
+    no public API contract published; see well-known/blockfi-well-known.yml. The
+    historical api.blockfi.com host no longer resolves in DNS.
+- id: asyncapi
+  conforms: false
+  applicable: false
+- id: graphql
+  conforms: false
+  applicable: false
+- id: oauth2
+  conforms: false
+  applicable: false
+- id: openid-connect
+  conforms: false
+  applicable: false
+  evidence: /.well-known/openid-configuration returns 404 on blockfi.com
+- id: rfc9457-problem-details
+  conforms: false
+  applicable: false
+- id: mcp
+  conforms: false
+  applicable: false
+  evidence: no hosted MCP server; /mcp and /.well-known/mcp.json both 404
+- id: a2a
+  conforms: false
+  applicable: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json both 404 on
+    blockfi.com; no agent card is published, so no a2a/ artifact exists
+- id: rfc9116-security-txt
+  conforms: false
+  applicable: true
+  evidence: /.well-known/security.txt returns 404 on blockfi.com
+- id: rfc8615-well-known-uris
+  conforms: false
+  applicable: true
+  evidence: no /.well-known/ document of any kind is served
+information_security_compliance:
+  found: false
+  note: >-
+    probe-security-programs.py returned vdp=none trust=none - no security.txt
+    Policy or Contact, no bug bounty program on HackerOne, Bugcrowd or Intigriti,
+    and no trust center or named certification (SOC 2, ISO 27001, PCI DSS). No
+    `Compliance` and no `Security` pointer is wired in apis.yml.
+domain_security_observed:
+  source: security/blockfi-domain-security.yml
+  summary: >-
+    blockfi.com serves TLS 1.3 with HSTS (max-age 31536000) and publishes SPF and a
+    DMARC record at p=reject - a notably strict mail policy, consistent with the
+    estate's repeated public warnings about phishing aimed at claimants. DNSSEC is
+    not enabled and no CAA record is published. These are WordPress.com platform
+    defaults plus estate-configured mail records, not evidence of an API program.
+x-evidence:
+  fetched: '2026-08-07'
+  probes:
+  - url: https://blockfi.com/
+    status: 200
+  - url: https://blockfi.com/licenses/
+    status: 200
+  - url: https://blockfi.com/.well-known/security.txt
+    status: 404
