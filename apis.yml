@@ -17,6 +17,17 @@ description: 'BlockFi was a Jersey City, New Jersey crypto-financial-services co
   zero public repositories, and no OpenAPI, GraphQL, AsyncAPI, MCP or agent-card
   document is served from any surviving BlockFi host.'
 url: https://raw.githubusercontent.com/api-evangelist/blockfi/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://avatars.githubusercontent.com/u/38138582?v=4
 x-type: company
 x-source: harvest:secondary-market
