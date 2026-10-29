@@ -64,5 +64,48 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-BlockFi is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/blockfi_stock/
+> **No longer operating.** This company or product has shut down, been discontinued, or been deprecated. This profile is kept as a historical record and is not maintained or rated.
+
+BlockFi was a Jersey City, New Jersey crypto-financial-services company founded in 2017 by Zac Prince and Flori Marquez that offered retail and institutional clients interest-bearing crypto accounts (the BlockFi Interest Account), USD loans collateralized by bitcoin and other digital assets, spot trading, and a bitcoin-rewards credit card, growing on a USD 350 million Series D in March 2021 that valued it at roughly USD 3 billion. The company filed for Chapter 11 bankruptcy protection in November 2022 in the wake of the FTX and Alameda Research collapse, and emerged in October 2023 not as an operating business but as a wind-down estate. Its customer web platform and mobile apps have been shut down, in-kind crypto distributions are administered through Coinbase and cash distributions through Kroll Restructuring Administration and Digital Disbursements, and blockfi.com is now a WordPress notice site carrying noindex/nofollow and dated estate updates rather than a product. There is no operating developer program: api.blockfi.com and every other developer, docs and app subdomain no longer resolve in DNS, the company GitHub organization holds zero public repositories, and no OpenAPI, GraphQL, AsyncAPI, MCP or agent-card document is served from any surviving BlockFi host.
+
+**Areas:** Company · Cryptocurrency · Digital Assets · Crypto Lending · Financial Services · Fintech · Blockchain · Bankruptcy Estate · Defunct · United States
+
+## BlockFi on APIs.io (historical record)
+
+Everything profiled for BlockFi is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/blockfi/](https://apis.io/providers/blockfi/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Blockfi Domain Security](https://apis.io/security/blockfi/blockfi-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://blockfi.com/)
+- [Support](https://blockfi.com/contact/)
+- [Blog](https://blockfi.com/category/news/)
+- [Terms of service](https://blockfi.com/category/terms/)
+- [Privacy policy](https://blockfi.com/privacy/)
+
+## API Evangelist rating
+
+**Not rated** — this company is recorded as no longer operating, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for BlockFi: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/blockfi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
